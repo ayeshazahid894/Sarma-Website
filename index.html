@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="ur" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sarma Naturals — Dietitian & Herbal Wellness</title>
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sarma Naturals — Dietitian & Herbal Wellness</title>
+
+  <!-- Fonts, styles, etc. -->
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+     emailjs.init("DzjH8aBpEjJXr5pza"); // Replace with your EmailJS public key
+  </script>
+
+  <!-- Your custom scripts can come after this -->
+</head>
+
+  <meta name="description" content="Ayesha Naturals - Dietitian services, personalized diet plans and herbal products (skincare, hair oil, teas, weight-loss blends)." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#2ba58a;
+      --accent-2:#7ad3b8;
+      --soft-green-top: linear-gradient(90deg, #c7f6df 0%, #a9e9d0 100%);
+      --soft-green-footer: linear-gradient(90deg, #def7ed 0%, #c8f0e3 100%);
+      --bg:#f7fbf9;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --radius:14px;
+      --max-w:1100px;
+      --shadow: 0 10px 30px rgba(10,20,20,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;background:linear-gradient(180deg,#fbfefb 0%,#eef9f5 100%);color:#0f1724;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+
+
+    /* Header below top bar */
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;background:transparent;position:relative;z-index:110}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:18px;box-shadow:var(--shadow)}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{padding:8px 12px;border-radius:10px;font-weight:600;color:#0b3b33}
+    nav a:hover{background:rgba(43,165,138,0.08)}
+
+    /* Hero */
+    .hero{display:flex;gap:30px;align-items:center;padding:28px 0}
+    .hero-left{flex:1}
+    .hero h1{font-size:30px;margin:0 0 10px;line-height:1.02}
+    .hero p{margin:0 0 16px;color:var(--muted);font-size:15px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:white;padding:12px 16px;border-radius:12px;border:none;cursor:pointer;font-weight:700}
+    .btn-outline{background:transparent;border:2px solid var(--accent);color:var(--accent);padding:10px 14px;border-radius:12px;cursor:pointer}
+
+    .hero-card{width:340px;background:linear-gradient(180deg,rgba(255,255,255,0.96),rgba(255,255,255,0.88));backdrop-filter:blur(6px);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+
+    /* background leaves */
+    .bg-hero{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+    .leaf{position:absolute;filter:blur(6px);opacity:.12}
+    .leaf.l1{width:520px;left:-140px;top:-80px;transform:rotate(-12deg);background:radial-gradient(circle at 30% 30%, #baf4df, transparent 45%)}
+    .leaf.l2{width:420px;right:-120px;bottom:-60px;transform:rotate(22deg);background:radial-gradient(circle at 70% 70%, #dff9f0, transparent 45%)}
+    .leaf.l3{width:260px;left:40%;top:-40px;transform:rotate(6deg);background:radial-gradient(circle at 40% 40%, #eafdf6, transparent 40%)}
+
+    /* Sections */
+    section{padding:28px 0}
+    h2{margin:0 0 12px;font-size:20px}
+    .small{color:var(--muted);font-size:14px}
+
+    /* Products */
+    .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:12px}
+    .card{background:var(--card);border-radius:12px;padding:12px;box-shadow:0 10px 26px rgba(15,23,42,0.04);border:1px solid rgba(15,23,42,0.03);transition:transform .22s,box-shadow .22s}
+    .card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(15,23,42,0.08)}
+    .card img{width:100%;height:400px;object-fit:cover;border-radius:10px}
+    .card h4{margin:10px 0 6px;font-size:16px}
+    .meta{color:var(--muted);font-size:13px}
+    .price{font-weight:800;color:var(--accent)}
+
+    /* DIET PLAN - large mixed dishes background */
+    .diet-hero{
+      position:relative;
+      border-radius:14px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      min-height:380px;
+      margin-top:12px;
+      background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder');
+      background-size:cover;
+      background-position:center;
+      box-shadow:0 12px 40px rgba(15,23,42,0.06);
+    }
+    .diet-hero::before{
+      content:'';
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(10,30,20,0.34), rgba(255,255,255,0.02));
+      mix-blend-mode: multiply;
+    }
+    .diet-hero .diet-content{position:relative;z-index:2;padding:28px;max-width:760px;color:white}
+    .diet-hero h3{margin:0 0 8px;font-size:24px}
+    .diet-hero p{margin:0 0 12px;color:rgba(255,255,255,0.95);font-size:15px}
+
+    /* meal gallery */
+    .meal-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+    .meal-card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(10,20,20,0.06)}
+    .meal-card img{width:100%;height:220px;object-fit:cover;display:block}
+    .meal-card .lbl{padding:10px;font-weight:700}
+
+    /* plan box */
+    .plan{background:linear-gradient(180deg,#ffffff,#fbfffb);border-radius:12px;padding:16px;box-shadow:var(--shadow);margin-top:12px}
+    .meal{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed #e9f6f1}
+    .meal:last-child{border-bottom:none}
+
+    /* packages */
+    .packages{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+    .pkg{background:linear-gradient(180deg,#ffffff,#f7fffb);padding:16px;border-radius:12px;flex:1;min-width:220px;box-shadow:var(--shadow);border:1px solid rgba(10,20,20,0.03)}
+    .pkg h3{margin:0 0 8px}
+    .pkg .price{font-size:18px;margin-top:10px}
+
+    /* contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:12px}
+    .contact-card{background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow)}
+    input,textarea,select{width:100%;padding:10px;border-radius:10px;border:1px solid #e6f1ec;margin-top:8px}
+
+    /* floating cart */
+    .cart{position:fixed;right:20px;bottom:90px;background:var(--accent);color:white;padding:12px 14px;border-radius:14px;cursor:pointer;box-shadow:0 14px 40px rgba(42,165,138,0.18);z-index:90}
+
+    /* soft green footer bar */
+    .footer-bar{height:70px;width:100%;background:var(--soft-green-footer);display:flex;align-items:center;justify-content:center;border-top-left-radius:14px;border-top-right-radius:14px;margin-top:28px;box-shadow:0 -8px 30px rgba(0,0,0,0.04)}
+    .footer-bar .info{color:#064b3d;font-weight:700;background:rgba(255,255,255,0.82);padding:10px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+
+    footer{padding:18px 0 40px;color:var(--muted);font-size:14px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{flex-direction:column}
+      .hero-card{width:100%}
+      .diet-hero{min-height:520px;background-position:top}
+      nav{display:none}
+      .contact-grid{grid-template-columns:1fr}
+    }
+
+    /* reveal */
+    .reveal{opacity:0;transform:translateY(14px);transition:all .6s ease-out}
+    .reveal.visible{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+
+  
+
+  <div class="wrap">
+    <!-- Header (below top bar) -->
+    <header>
+      <div class="logo">
+  <img src="logo.jpg" alt="Sarma Naturals Logo" style="width:100px;height:100x;object-fit:contain;">
+</div>
+
+
+      <nav>
+        <a href="#about">Home</a>
+        <a href="#products">Products</a>
+        <a href="#diet">Diet Plans</a>
+        <a href="#packages">Packages</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="about" class="hero">
+        <div class="hero-left">
+          <h1>Dietitian Sarma Shahid</h1>
+          <p>Personalized diet plans, herbal skincare aur natural supplements — evidence-based aur safe formulations. Online consults aur product delivery Pakistan-wide.</p>
+          <div class="buttons">
+            <button class="btn" onclick="scrollToSection('packages')">Book Consultation</button>
+            <button class="btn-outline" onclick="scrollToSection('products')">Shop Products</button>
+          </div>
+          <div style="margin-top:14px;color:var(--muted);font-size:14px"></div>
+        </div>
+
+        <aside class="hero-card reveal">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="display:inline-block;background:rgba(43,165,138,0.12);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;margin-bottom:6px">Dietitian</div>
+              <h3>Personalized Nutrition & Herbal Care</h3>
+              <div class="small">Meal plans • Skin & hair herbal formulations • Tea blends</div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="dietitian" style="width:86px;border-radius:10px;object-fit:cover"/>
+          </div>
+          <hr style="margin:12px 0;border:none;border-top:1px solid #eef8f4"/>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <div style="background:rgba(43,165,138,0.08);padding:6px 10px;border-radius:999px;color:var(--accent);font-weight:700">Herbal Skincare</div>
+            <div style="background:rgba(43,165,138,0.08);padding:6px 10px;border-radius:999px;color:var(--accent);font-weight:700">Weight Support</div>
+            <div style="background:rgba(43,165,138,0.08);padding:6px 10px;border-radius:999px;color:var(--accent);font-weight:700">Teas & Tonics</div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section id="products">
+        <h2>Products</h2>
+        <p class="small">Dietitian-backed herbal products — skincare, hair oil, weight support and speciality teas. Click details to add to cart.</p>
+        <div class="products" id="products-grid"></div>
+      </section>
+
+      <!-- DIET PLAN (large mixed-dishes background) -->
+      <section id="diet">
+        <h2>Diet Plans — Visual Meal Guide</h2>
+        <p class="small"></p>
+
+        <div class="diet-hero reveal" role="img" aria-label="Mixed healthy dishes background">
+          <div class="diet-content">
+            <h3>Balanced Day — Visual Guide</h3>
+            <p></p>
+            <div style="margin-top:12px">
+              <button class="btn" onclick="scrollToSection('meal-gallery')">Meal Photos</button>
+              <button class="btn-outline" onclick="scrollToSection('packages')">Book Consult</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- meal gallery - large images for each food -->
+        <div id="meal-gallery" class="meal-gallery">
+          <div class="meal-card reveal">
+            <img src="https://images.unsplash.com/photo-1546069901-eacef0df6022?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Breakfast - Oats & fruits" />
+            <div class="lbl">Breakfast — Oats porridge with chia</div>
+          </div>
+          <div class="meal-card reveal">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Snack - Yogurt & nuts" />
+            <div class="lbl">Mid-morning — Greek yogurt + almonds</div>
+          </div>
+          <div class="meal-card reveal">
+            <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Lunch - Chicken & salad" />
+            <div class="lbl">Lunch — Grilled chicken / beans + brown rice & salad</div>
+          </div>
+          <div class="meal-card reveal">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Afternoon - Tea & fruit" />
+            <div class="lbl">Afternoon — Spearmint tea + fruit</div>
+          </div>
+          <div class="meal-card reveal">
+            <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Dinner - Fish & veggies" />
+            <div class="lbl">Dinner — Steamed fish + mixed veggies</div>
+          </div>
+        </div>
+
+        
+<!-- PACKAGES -->
+<section id="packages">
+  <h2>Consultation Packages</h2>
+  <p class="small">Affordable packages with clear deliverables. Prices shown in PKR.</p>
+
+  <div class="packages">
+    <div class="pkg reveal">
+      <h3>First Plan</h3>
+      <div class="small">
+        Initial assessment + 7-day personalized meal plan + basic supplement suggestions
+      </div>
+      <div class="price" style="margin-top:10px;color:var(--accent)">PKR 2,000</div>
+    </div>
+
+    <div class="pkg reveal">
+      <h3>Follow-up</h3>
+      <div class="small">Follow-up call + diet adjustment</div>
+      <div class="price" style="margin-top:10px;color:var(--accent)">PKR 1,000</div>
+    </div>
+
+    <div class="pkg reveal">
+      <h3>Premium (8 weeks)</h3>
+      <div class="small">
+        Full 8-week plan + weekly check-ins + tailored herbal product suggestions
+      </div>
+      <div class="price" style="margin-top:10px;color:var(--accent)">PKR 5,000</div>
+    </div>
+  </div>
+</section>
+
+
+      <!-- CONTACT -->
+      
+
+          <aside class="contact-card reveal">
+            <h4>Send a message / Order</h4>
+            <form id="contact-form" onsubmit="submitContact(event)">
+              <label class="small">Name</label>
+              <input id="cname" required placeholder="Your name" />
+              <label class="small">Email</label>
+              <input id="cemail" required type="email" placeholder="you@example.com" />
+              <label class="small">Message / Order details</label>
+              <textarea id="cmsg" rows="4" placeholder="Order: Undereye cream x1, Weightloss tea x2..."></textarea>
+              <div style="display:flex;gap:8px;margin-top:10px">
+                <button class="btn">Send</button>
+                <button type="button" class="btn-outline" onclick="openCart()">Open Cart</button>
+              </div>
+            </form>
+          </aside>
+        </div>
+      </section>
+ 
+
+
+      <!-- soft green footer bar with contact info -->
+      <div class="footer-bar reveal">
+        <div class="info">Email: <a href="mailto:drsarmashahid3103@gmail.com">drsarmashahid3103@gmail.com</a></div>
+      </div>
+
+      <div style="height:18px"></div>
+    </main>
+
+    <button class="cart" onclick="openCart()">Cart (<span id="cart-count">0</span>)</button>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+
+       
+      </div>
+    </footer>
+  </div>
+
+  <!-- modal -->
+  <div id="modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.45);z-index:200">
+    <div id="modal-box" style="background:white;padding:18px;border-radius:12px;max-width:720px;width:94%;box-shadow:0 18px 40px rgba(2,6,23,0.18)"></div>
+  </div>
+  <footer>
+<center> &copy; 2025 Sarma Naturals. All Rights Reserved.</center>
+</footer>
+
+  <script>
+    /* ---------- Sample products ---------- */
+    
+   const products = [
+  {
+    id: 'p1',
+    title: 'Herbal Weight Loss Blend',
+    price: 1000,
+    discount: 40,
+    desc: 'Natural herbal capsules to support metabolism (30 days).',
+    img: './images/tea.jpg'
+  },
+  {
+    id: 'p2',
+    title: 'Undereye Brightening Cream',
+    price: 800,
+    discount: 50,
+    desc: 'Gentle herbal cream to reduce dark circles.',
+    img: './images/undereye.jpg'
+  },
+  {
+    id: 'p3',
+    title: 'Skin Care Day Cream',
+    price: 1200,
+    discount: 41.67,
+    desc: 'Moisturizing day cream with natural extracts.',
+    img: './images/undereye.jpg'
+  },
+  {
+    id: 'p4',
+    title: 'Rosemary Oil Serum',
+    price: 1300,
+    discount: 53.85,
+    desc: 'Cold-pressed hair oil for strength and shine.',
+    img: './images/oil serum.jpg'
+  },
+  {
+    id: 'p5',
+    title: 'Skin Scret Serum',
+    price: 1200,
+    discount: 41.67,
+    desc: 'Lightweight serum for glow and tone-evening.',
+    img: './images/skin.jpg'
+  },
+  {
+    id: 'p6',
+    title: 'Spearmint Tea (25 bags)',
+   price: 1000,
+    discount: 40,
+    desc: 'Refreshing spearmint tea for digestion.',
+    img: './images/tea.jpg'
+  },
+  {
+    id: 'p7',
+    title: 'Weightloss Tea (25 bags)',
+    price: 1000,
+    discount: 40,
+    desc: 'Herbal tea to support weight goals.',
+    img: './images/tea.jpg'
+  },
+  {
+    id: 'p8',
+    title: 'Herbal Wellness Tea (25 bags)',
+    price: 1000,
+    discount: 40,
+    desc: 'Daily herbal infusion for wellbeing.',
+    img: './images/tea.jpg'
+  }
+];
+
+
+
+    /* render products */
+    function renderProducts(){
+  const grid = document.getElementById('products-grid'); 
+  grid.innerHTML = '';
+
+  products.forEach(p => {
+    const discountedPrice = p.discount ? (p.price - p.price * (p.discount/100)) : p.price;
+    const el = document.createElement('div'); 
+    el.className = 'card reveal';
+    el.innerHTML = `
+      <img src="${p.img}" alt="${p.title}" loading="lazy" />
+      <h4>${p.title}</h4>
+      <div class="meta">${p.desc}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+        <div class="price">
+          PKR ${discountedPrice.toFixed(0)}
+          ${p.discount ? `<span style="text-decoration:line-through;color:var(--muted);margin-left:6px;">PKR ${p.price}</span>` : ''}
+        </div>
+        <div>
+          <button class="btn-outline" onclick="showDetails('${p.id}')">Details</button> 
+          <button class="btn" onclick="addToCart('${p.id}')">Add</button>
+        </div>
+      </div>`;
+    grid.appendChild(el);
+  });
+}
+
+
+    /* cart (localStorage) */
+    /* ---------- Cart Logic ---------- */
+let cart = JSON.parse(localStorage.getItem('an_cart') || '[]');
+function saveCart(){ localStorage.setItem('an_cart', JSON.stringify(cart)); updateCartCount(); }
+function updateCartCount(){ document.getElementById('cart-count').innerText = cart.reduce((s,i)=>s+i.qty,0); }
+function addToCart(id){
+  const p = products.find(x=>x.id===id);
+  const found = cart.find(x=>x.id===id);
+  if(found) found.qty++;
+  else cart.push({id:id,qty:1,title:p.title,price:p.price});
+  saveCart();
+  toast(`${p.title} cart mein add hogaya`);
+}
+function changeQty(id, delta){
+  const it = cart.find(x=>x.id===id); if(!it) return;
+  it.qty += delta; if(it.qty <= 0) cart = cart.filter(x=>x.id!==id);
+  saveCart(); openCart();
+}
+function clearCart(){ if(confirm('Clear the cart?')){ cart = []; saveCart(); closeModal(); } }
+function showDetails(id){
+  const p = products.find(x=>x.id===id);
+  const box = document.getElementById('modal-box');
+  box.innerHTML = `<h3>${p.title}</h3>
+    <img src="${p.img}" style="width:100%;height:260px;object-fit:cover;border-radius:8px;margin:8px 0" />
+    <p>${p.desc}</p>
+    <p style="font-weight:800">PKR ${p.price}</p>
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <button class="btn" onclick="addToCart('${id}'); closeModal();">Add to cart</button>
+      <button class="btn-outline" onclick="closeModal()">Close</button>
+    </div>`;
+  document.getElementById('modal').style.display='flex';
+}
+function addToCart(id){
+  const p = products.find(x=>x.id===id);
+  const discountedPrice = p.discount ? (p.price - p.price * (p.discount / 100)) : p.price; // ✅ calculate discounted price
+  const found = cart.find(x=>x.id===id);
+
+  if(found) {
+    found.qty++;
+  } else {
+    cart.push({
+      id: id,
+      qty: 1,
+      title: p.title,
+      price: discountedPrice  // ✅ store discounted price instead of original
+    });
+  }
+
+  saveCart();
+  toast(`${p.title} cart mein add hogaya`);
+}
+
+function closeModal(){ document.getElementById('modal').style.display='none'; }
+
+/* ---------- Open Cart Modal ---------- */
+function openCart(){
+  if(cart.length === 0){ alert('Cart khaali hai — products add karein'); return; }
+  const box = document.getElementById('modal-box');
+  let html = '<h3>Your Cart</h3><div>';
+  cart.forEach(item=>{
+    html += `<div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0">
+      <div><strong>${item.title}</strong><div style="font-size:13px;color:var(--muted)">PKR ${item.price} x ${item.qty}</div></div>
+      <div><button class="btn-outline" onclick="changeQty('${item.id}',-1)">-</button> <button class="btn-outline" onclick="changeQty('${item.id}',1)">+</button></div>
+    </div>`;
+  });
+  const total = cart.reduce((s,i)=>s + i.price * i.qty, 0);
+  html += `</div><div style="margin-top:10px;font-weight:800">Total: PKR ${total}</div>
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <button class="btn" onclick="checkout()">Checkout</button>
+      <button class="btn-outline" onclick="clearCart()">Clear</button>
+    </div>`;
+  box.innerHTML = html;
+  document.getElementById('modal').style.display='flex';
+}
+
+/* ---------- Checkout with EmailJS ---------- */
+function checkout(){
+  if(cart.length === 0){ alert('Cart is empty'); return; }
+
+  const templateParams = {
+    order_list: cart.map(i=>`${i.title} x ${i.qty} = PKR ${i.price*i.qty}`).join('\n'),
+    total_price: cart.reduce((s,i)=>s + i.price*i.qty, 0)
+  };
+
+  // Replace with your EmailJS Service ID and Template ID
+  emailjs.send('service_cg8zzlu', 'template_0rgl26k', templateParams)
+    .then((response)=>{
+      alert('Order sent successfully!');
+      cart = []; saveCart(); closeModal();
+    }, (error)=>{
+      alert('Failed to send order. Try again.');
+      console.error(error);
+    });
+}
+
+/* ---------- Contact Form with EmailJS ---------- */
+function submitContact(e){
+  e.preventDefault();
+
+  const name = document.getElementById('cname').value;
+  const email = document.getElementById('cemail').value;
+  const msg = document.getElementById('cmsg').value;
+
+  const templateParams = {
+    from_name: name,
+    from_email: email,
+    message: msg
+  };
+
+  emailjs.send('service_cg8zzlu', 'template_0rgl26k', templateParams)
+    .then((response) => {
+       alert("Message sent successfully!");
+       document.getElementById('contact-form').reset();
+    }, (error) => {
+       alert("Failed to send message, please try again.");
+       console.error(error);
+    });
+}
+
+/* ---------- Helpers ---------- */
+function toast(text){
+  const d = document.createElement('div');
+  d.innerText = text;
+  d.style.position = 'fixed';
+  d.style.right = '20px';
+  d.style.bottom = '160px';
+  d.style.background = 'rgba(12,100,80,0.95)';
+  d.style.color = 'white';
+  d.style.padding = '10px 14px';
+  d.style.borderRadius = '10px';
+  d.style.zIndex = 9999;
+  document.body.appendChild(d);
+  setTimeout(()=>d.remove(),2200);
+}
+function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+function initReveal(){
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting) en.target.classList.add('visible');
+    });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+
+    function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+
+    /* reveal on scroll */
+    function initReveal(){
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(en=>{
+          if(en.isIntersecting) en.target.classList.add('visible');
+        });
+      }, {threshold: 0.12});
+      document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    }
+
+    /* modal outside click */
+    document.getElementById('modal').addEventListener('click', (e)=>{
+      if(e.target.id === 'modal') closeModal();
+    });
+
+    // init
+    renderProducts();
+    updateCartCount();
+    initReveal();
+  </script>
+</body>
