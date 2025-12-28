@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Checkout - Sarma Naturals</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("DzjH8aBpEjJXr5pza"); // Your EmailJS public key
+  </script>
+  <style>
+    body { font-family: Inter, sans-serif; padding: 20px; background: #f7fbf9; }
+    h2, h3 { margin-bottom: 12px; }
+    input, button, textarea { width: 100%; padding: 10px; margin: 6px 0; border-radius: 8px; border: 1px solid #ccc; }
+    button { background: #2ba58a; color: white; font-weight: 700; border: none; cursor: pointer; }
+    button.btn-outline { background: white; color: #2ba58a; border: 2px solid #2ba58a; }
+    hr { margin: 24px 0; border: none; border-top: 1px solid #ddd; }
+    label { font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <h2>Checkout</h2>
+  <div id="cart-summary"></div>
+
+  <h3>Enter Your Details</h3>
+  <input id="cname" placeholder="Your Name" required />
+  <input id="cemail" type="email" placeholder="Your Email" required />
+  <textarea id="caddress" rows="3" placeholder="Your Address" required></textarea>
+  <input id="cphone" type="tel" placeholder="Your Phone Number" required />
+
+  <h3>Payment Method</h3>
+  <p>Cash on Delivery (Only option available)</p>
+
+  <button onclick="submitCheckout()">Place Order</button>
+  <button class="btn-outline" onclick="goBack()">Back to Shop</button>
+
+  <script>
+    // ----------- Cart Logic -----------
+    const urlParams = new URLSearchParams(window.location.search);
+    const cart = JSON.parse(decodeURIComponent(urlParams.get('cart') || '[]'));
+
+    const summaryDiv = document.getElementById('cart-summary');
+    if(cart.length === 0){
+      summaryDiv.innerHTML = '<p>Cart is empty!</p>';
+    } else {
+      let html = '<ul>';
+      cart.forEach(item => {
+        html += `<li>${item.title} x ${item.qty} = PKR ${Math.round(item.price * item.qty)}</li>`;
+      });
+      html += '</ul>';
+      const total = cart.reduce((s,i)=>s + i.price*i.qty, 0);
+      html += `<p><strong>Total: PKR ${Math.round(total)}</strong></p>`;
+      summaryDiv.innerHTML = html;
+    }
+
+    // ----------- Submit Checkout -----------
+    function submitCheckout(){
+      const name = document.getElementById('cname').value;
+      const email = document.getElementById('cemail').value;
+      const address = document.getElementById('caddress').value;
+      const phone = document.getElementById('cphone').value;
+
+      if(!name || !email || !address || !phone) { 
+        alert('Please fill all fields'); 
+        return; 
+      }
+
+      const templateParams = {
+        from_name: name,
+        from_email: email,
+        message: `Order Details:\n${cart.map(i=>`${i.title} x ${i.qty} = PKR ${i.price*i.qty}`).join('\n')}\n\nAddress: ${address}\nPhone: ${phone}`,
+        total_price: cart.reduce((s,i)=>s + i.price*i.qty, 0)
+      };
+
+      emailjs.send('service_cg8zzlu', 'template_0rgl26k', templateParams)
+        .then(response => {
+          alert('Order placed successfully! Cash on delivery.');
+          window.location.href = 'index.html'; // return to main page
+        }, error => {
+          alert('Failed to place order. Try again.');
+          console.error(error);
+        });
+    }
+
+    // ----------- Back Button (No email, no alert) -----------
+    function goBack(){
+      window.location.href = 'index.html'; // just go back safely
+    }
+  </script>
+
+</body>
+</html>
